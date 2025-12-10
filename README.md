@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Test Kafka - Producer & Consumer</title>
+    <title> Test Kafka - Producer & Consumer</title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
 
 <hr>
 
-<h2>✉️ 3. Envoyer des messages (Producer)</h2>
+<h2>2. Envoyer des messages (Producer)</h2>
 
 <pre>
 <code>
@@ -77,6 +77,13 @@ Message 2
 </pre>
 
 <hr>
+
+![Description de l'image](captures/1.png)
+![Description de l'image](captures/2.png)
+![Description de l'image](captures/3.png)
+![Description de l'image](captures/4.png)
+
+
 
 </body>
 </html>
