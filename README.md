@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Kafka – Producer & Consumer</h1>
+<h1>Partie 1 - Kafka – Producer & Consumer</h1>
 
 
 <p>Ce guide explique comment tester rapidement Kafka avec :</p>
@@ -83,7 +83,18 @@ Message 2
 ![Description de l'image](captures/3.png)
 ![Description de l'image](captures/4.png)
 
+<h1> Partie 2 — Publication d’un Message via un REST Controller et Lecture dans Kafka</h1>
 
+<p>
+Dans cette étape, l’application Spring Boot expose une API REST permettant de publier un message directement dans un topic Kafka.
+Lorsqu’un appel est effectué sur l’endpoint <code>/publish/{topic}/{name}</code>, un événement est généré puis envoyé au broker Kafka via StreamBridge.
+Ensuite, l’apparition du message dans <code>kafka-console-consumer</code> confirme que la production et la consommation fonctionnent correctement.
+</p>
+
+
+
+![Description de l'image](captures/5.png)
+![Description de l'image](captures/6.png)
 
 </body>
 </html>
