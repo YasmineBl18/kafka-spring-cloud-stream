@@ -43,6 +43,40 @@ public class PageEventController {
         streamBridge.send(topic, pageEvent);
         return pageEvent;
     }
+    @GetMapping(path = "/analytics", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Map<String, Long>> analytics() {
+
+        return Flux.interval(Duration.ofSeconds(1))
+                .map(tick -> {
+
+                    Map<String, Long> result = new HashMap<>();
+
+                    ReadOnlyWindowStore<String, Long> store =
+                            interactiveQueryService.getQueryableStore(
+                                    "count-store",
+                                    QueryableStoreTypes.windowStore()
+                            );
+
+                    Instant now = Instant.now();
+                    Instant from = now.minusMillis(5000);
+
+                    try (KeyValueIterator<Windowed<String>, Long> fetchAll =
+                                 store.fetchAll(from, now)) {
+
+                        while (fetchAll.hasNext()) {
+                            KeyValue<Windowed<String>, Long> record = fetchAll.next();
+
+                            // VERSION LA PLUS COMPATIBLE
+                            String key = record.key.key();
+                            Long value = record.value;
+
+                            result.put(key, value);
+                        }
+                    }
+
+                    return result;
+                });
+    }
 
     }
 

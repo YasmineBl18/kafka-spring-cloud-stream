@@ -106,5 +106,21 @@ docker exec -it bdcc-kafka-broker kafka-console-consumer --bootstrap-server brok
 ![Description de l'image](captures/7.png)
 
 
+
+![Description de l'image](captures/9.png)
+
+<h1>Partie 3 - Visualisation des nombres de visites des pages P1 et P2</h1>
+
+<p>
+Nous avons utilisé Kafka Streams pour compter en temps réel le nombre de visites des pages P1 et P2 à l’aide d’un state store nommé <b>count-store</b>. 
+Ce store maintient les résultats dans une fenêtre glissante de 5 secondes, permettant de suivre l’évolution des visites en continu. 
+Les données calculées sont ensuite envoyées au frontend via SSE et affichées sous forme de graphiques dynamiques.
+</p>
+
+
+![Description de l'image](captures/10.png)
+
+
+
 </body>
 </html>
